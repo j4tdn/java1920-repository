@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- via static factor method -->
+    <bean id="clientService1" class="lesson24.springcore.service.ClientService" factory-method="getInstance" ></bean>
+    
+    <!-- via non-static factor method -->
+    <bean id="service-locator" class="lesson24.springcore.service.ClientServiceLocator"></bean>
+    
+    <bean id="clientService2" factory-bean="service-locator" factory-method="createService"></bean>
+    
+</beans>

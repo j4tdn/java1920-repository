@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-bean-factory-method.xml"/>
+    
+    <!-- via constructor -->
+    <bean id="grx" class="lesson24.springcore.bean.ItemGroup"></bean>
+    <bean id="gry" class="lesson24.springcore.bean.ItemGroup">
+    	<constructor-arg name="id" value="101"></constructor-arg>
+    	<constructor-arg name="name" value="Item Group Y101"></constructor-arg>
+    </bean>
+    
+    <!-- scope -->
+    <bean id="grz" class="lesson24.springcore.bean.ItemGroup" scope="prototype">
+    	<constructor-arg name="id" value="102"></constructor-arg>
+    	<constructor-arg name="name" value="Item Group Z102"></constructor-arg>
+    </bean>
+    
+    <!-- via setter  -->
+    <bean id="ita" class="lesson24.springcore.bean.Item">
+    	<property name="id" value="1"></property>
+    	<property name="name" value="Item T1"></property>
+    	<property name="providers">
+    		<list>
+    			<value>p1</value>
+    			<value>p2</value>
+    			<value>p3</value>
+    		</list>
+    	</property>
+    	<property name="group" ref="gry"></property>
+    </bean>
+</beans>
