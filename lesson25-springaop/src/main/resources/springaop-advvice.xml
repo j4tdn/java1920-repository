@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- JoinPoint  -->
+    <bean id="mv1" class="lesson25.springaop.service.MovieService"></bean>
+    
+    <!-- Advice -->
+    <bean id="adv-before" class="lesson25.springaop.aspect.SpringAopLogBefore"></bean>
+    
+    <!-- Proxy  -->
+    <bean id="mvproxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    	<property name="target" ref="mv1"></property>
+    	<property name="interceptorNames">
+    		<list>
+    			<value>adv-before</value>
+    		</list>
+    	</property>
+    </bean>
+    
+    
+</beans>

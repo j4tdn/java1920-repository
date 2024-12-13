@@ -1,0 +1,26 @@
+1. Khái niệm dependency
+
+2. Khái niệm dependency inject, inversion of control
+
+3. Khái niệm bean, scope
+
+4. Khởi tạo bean thông qua
+   + constructor
+   + getter/setter
+   + factory method
+   
+5. Cấu hình với annotation
+   + @Configuration: Class để khởi tạo các bean thông qua @Bean
+                   : Tạo bean trong class config
+   + @ComponentScan: Scan, tạo bean, inject dependency cho package ...
+   + @Import
+   + @Primary
+   + @Scope
+   + @Component: Tạo bean cho class
+      Alias: @Controller, @Serivce, @Repository
+      
+   + @Autowiried
+   + @Qualifier
+   
+Cấu hình với annotation: code nó sẽ ngắn gọn, phần xử lý đã nằm trong annotation
+Cấu hình với xml: giảm building time, ko cần compile xml      
